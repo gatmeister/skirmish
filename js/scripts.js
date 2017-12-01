@@ -1,8 +1,8 @@
 $(document).ready(function(){
-	
+
 	/*======Sub Menu Dropdown=====================================*/
 	function InitializeSubMenuDropdown() {
-		$(".dropdown-button").dropdown({ 
+		$(".dropdown-button").dropdown({
 			inDuration: 300,
 			outDuration: 225,
 			constrainWidth: false,
@@ -12,7 +12,7 @@ $(document).ready(function(){
 			alignment: 'left'
 		});
 	}
-	
+
 	/*======Mobile Menu=====================================*/
 	function InitializeMobileMenu() {
 		$(".button-collapse").on('click', function(event) {
@@ -22,7 +22,7 @@ $(document).ready(function(){
 		});
 		$(document).on('click', function(event){
 			if($(event.target).is(".mobile-nav") || $(event.target).closest(".mobile-nav").length) {
-				 
+
 			}
 			else {
 				$(".mobile-nav").slideUp(375, 'swing');
@@ -31,13 +31,13 @@ $(document).ready(function(){
 	}
 
 	/*======Select Dropdown=====================================*/
-	function InitializeSelectDropdown() {	
+	function InitializeSelectDropdown() {
 		$('select').material_select();
 	}
-	
+
 
 	/*======Authenticate Modal Popups=====================================*/
-	function InitializeAuthenticateModalPopup() {		
+	function InitializeAuthenticateModalPopup() {
 		$(".sign-up-modal").on('click', function() {
 			var modal = new Custombox.modal({
 				content: {
@@ -91,8 +91,8 @@ $(document).ready(function(){
 			modal.open();
 		});
 	}
-		
-	/*======Initialize Functions=====================================*/	
+
+	/*======Initialize Functions=====================================*/
 	InitializeSubMenuDropdown();
 	InitializeMobileMenu();
 	InitializeSelectDropdown();
