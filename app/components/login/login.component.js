@@ -1,7 +1,23 @@
 function LoginController() {
   var vm = this;
-  vm.$onInit = function () {
+  vm.$onInit = () => {
     var vm = this;
+    vm.passwordInputType = 'password';
+
+    vm.showPassword = () => {
+      switch (vm.passwordInputType) {
+        case 'text':
+          vm.passwordInputType = 'password';
+          break;
+        case 'password':
+          vm.passwordInputType = 'text';
+          break;
+      }
+    }
+
+    vm.login = (email, password) => {
+      console.log(email, password);
+    }
   }
 }
 
@@ -20,13 +36,13 @@ app.component('appLogin', {
         <form>
           <div class="input-field">
             <i class="icon-non-interactive-email prefix"></i>
-            <input id="txtEmail" type="text" class="validate">
+            <input id="txtEmail" type="text" class="validate" ng-model="vm.email">
             <label for="txtEmail">Email Address</label>
           </div>
           <div class="input-field">
             <i class="icon-non-interactive-lock prefix"></i>
-            <a href="#" class="postfix"><i class="icon-non-interactive-eye"></i></a>
-            <input id="txtPassword" type="text" class="validate">
+            <span class="postfix toggle-passsword" ng-click="vm.showPassword()"><i class="icon-non-interactive-eye"></i></span>
+            <input id="txtPassword" type="{{vm.passwordInputType}}" class="validate" ng-model="vm.password">
             <label for="txtPassword">Password</label>
           </div>
           <div class="checkbox">
@@ -38,7 +54,7 @@ app.component('appLogin', {
           </div>
           <div class="clearfix"></div>
           <div class="btn-authentication-left">
-            <button class="btn">LOG IN</button>
+            <button class="btn" ng-click="vm.login(vm.email, vm.password)">LOG IN</button>
           </div>
           <div class="link-login">
             Not a member? <a href="#">Sign Up here</a>
