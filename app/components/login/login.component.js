@@ -1,4 +1,4 @@
-function LoginController() {
+function LoginController(AuthFactory) {
   var vm = this;
   vm.$onInit = () => {
     var vm = this;
@@ -16,7 +16,7 @@ function LoginController() {
     }
 
     vm.login = (email, password) => {
-      console.log(email, password);
+      AuthFactory.userLogin(email, password);
     }
   }
 }
